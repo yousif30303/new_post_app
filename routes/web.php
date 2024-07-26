@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\UserPostController;
 use App\Http\Controllers\PostLikesController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -41,3 +42,5 @@ Route::delete('posts/{post}',[PostController::class,'destroy'])->name('posts.des
 
 Route::post('posts/{post}',[PostLikesController::class,'store'])->name('posts.like');
 Route::delete('post/{post}/likes',[PostLikesController::class,'destroy'])->name('posts.like.destroy');
+
+Route::get('user/{user:username}/post',[UserPostController::class,'index'])->name('user.posts');
